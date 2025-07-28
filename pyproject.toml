@@ -1,0 +1,55 @@
+[project]
+name = "cosmohubitatplugin"
+version = "0.1.0"
+description = "Hubitat plugin for the cosmo server"
+readme = "README.md"
+authors = [
+    { name = "Dan Marchese", email = "dan@marchese.me" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "cosmocore",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.3,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1",
+    "ruff>=0.12",
+]
+
+[tool.pyright]
+include = ["."]
+exclude = ["**/__pycache__", "**/.venv", "**/node_modules", "**/.git"]
+reportMissingImports = true
+reportMissingTypeStubs = false
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 90
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.uv.sources]
+cosmocore = { git = "https://github.com/marchese29/CosmoCore" }
