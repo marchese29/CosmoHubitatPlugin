@@ -1,0 +1,1566 @@
+{
+    "capabilities": [
+        {
+            "name": "AccelerationSensor",
+            "attributes": [
+                {
+                    "name": "acceleration",
+                    "value_type": "ENUM",
+                    "notes": "active, inactive"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "Actuator",
+            "attributes": [],
+            "commands": []
+        },
+        {
+            "name": "AirQuality",
+            "attributes": [
+                {
+                    "name": "airQualityIndex",
+                    "value_type": "NUMBER",
+                    "notes": "range:0..500"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "Alarm",
+            "attributes": [
+                {
+                    "name": "alarm",
+                    "value_type": "ENUM",
+                    "notes": "strobe, off, both, siren"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "both",
+                    "arguments": []
+                },
+                {
+                    "name": "off",
+                    "arguments": []
+                },
+                {
+                    "name": "siren",
+                    "arguments": []
+                },
+                {
+                    "name": "strobe",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "AudioNotification",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "playText",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "value_type": "STRING",
+                            "notes": "required - Text to play"
+                        },
+                        {
+                            "name": "volumelevel",
+                            "value_type": "NUMBER",
+                            "notes": "optional - Volume level (0 to 100)"
+                        }
+                    ]
+                },
+                {
+                    "name": "playTextAndRestore",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "value_type": "STRING",
+                            "notes": "required - Text to play"
+                        },
+                        {
+                            "name": "volumelevel",
+                            "value_type": "NUMBER",
+                            "notes": "optional - Volume level (0 to 100)"
+                        }
+                    ]
+                },
+                {
+                    "name": "playTextAndResume",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "value_type": "STRING",
+                            "notes": "required - Text to play"
+                        },
+                        {
+                            "name": "volumelevel",
+                            "value_type": "NUMBER",
+                            "notes": "optional - Volume level (0 to 100)"
+                        }
+                    ]
+                },
+                {
+                    "name": "playTrack",
+                    "arguments": [
+                        {
+                            "name": "trackuri",
+                            "value_type": "STRING",
+                            "notes": "required - URI/URL of track to play"
+                        },
+                        {
+                            "name": "volumelevel",
+                            "value_type": "NUMBER",
+                            "notes": "optional - Volume level (0 to 100)"
+                        }
+                    ]
+                },
+                {
+                    "name": "playTrackAndRestore",
+                    "arguments": [
+                        {
+                            "name": "trackuri",
+                            "value_type": "STRING",
+                            "notes": "required - URI/URL of track to play"
+                        },
+                        {
+                            "name": "volumelevel",
+                            "value_type": "NUMBER",
+                            "notes": "optional - Volume level (0 to 100)"
+                        }
+                    ]
+                },
+                {
+                    "name": "playTrackAndResume",
+                    "arguments": [
+                        {
+                            "name": "trackuri",
+                            "value_type": "STRING",
+                            "notes": "required - URI/URL of track to play"
+                        },
+                        {
+                            "name": "volumelevel",
+                            "value_type": "NUMBER",
+                            "notes": "optional - Volume level (0 to 100)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "AudioVolume",
+            "attributes": [
+                {
+                    "name": "mute",
+                    "value_type": "ENUM",
+                    "notes": "unmuted, muted"
+                },
+                {
+                    "name": "volume",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "mute",
+                    "arguments": []
+                },
+                {
+                    "name": "unmute",
+                    "arguments": []
+                },
+                {
+                    "name": "setVolume",
+                    "arguments": [
+                        {
+                            "name": "volumelevel",
+                            "value_type": "NUMBER",
+                            "notes": "Volume level to set"
+                        }
+                    ]
+                },
+                {
+                    "name": "volumeDown",
+                    "arguments": []
+                },
+                {
+                    "name": "volumeUp",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Battery",
+            "attributes": [
+                {
+                    "name": "battery",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "Beacon",
+            "attributes": [
+                {
+                    "name": "presence",
+                    "value_type": "ENUM",
+                    "notes": "present, not present"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "Bulb",
+            "attributes": [
+                {
+                    "name": "switch",
+                    "value_type": "ENUM",
+                    "notes": "on, off"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "off",
+                    "arguments": []
+                },
+                {
+                    "name": "on",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Button",
+            "attributes": [
+                {
+                    "name": "button",
+                    "value_type": "ENUM",
+                    "notes": "pushed, held"
+                },
+                {
+                    "name": "numberOfButtons",
+                    "value_type": "NUMBER",
+                    "notes": "deprecated"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "CarbonDioxideMeasurement",
+            "attributes": [
+                {
+                    "name": "carbonDioxide",
+                    "value_type": "NUMBER",
+                    "notes": "unit:ppm"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "CarbonMonoxideDetector",
+            "attributes": [
+                {
+                    "name": "carbonMonoxide",
+                    "value_type": "ENUM",
+                    "notes": "clear, detected, tested"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "ChangeLevel",
+            "attributes": [
+                {
+                    "name": "level",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "startLevelChange",
+                    "arguments": [
+                        {
+                            "name": "direction",
+                            "value_type": "ENUM",
+                            "notes": "up, down"
+                        }
+                    ]
+                },
+                {
+                    "name": "stopLevelChange",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Chime",
+            "attributes": [
+                {
+                    "name": "soundName",
+                    "value_type": "STRING",
+                    "notes": ""
+                },
+                {
+                    "name": "soundEffects",
+                    "value_type": "JSON_OBJECT",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "playSound",
+                    "arguments": [
+                        {
+                            "name": "soundnumber",
+                            "value_type": "NUMBER",
+                            "notes": "Sound number to play"
+                        }
+                    ]
+                },
+                {
+                    "name": "stop",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "ColorControl",
+            "attributes": [
+                {
+                    "name": "color",
+                    "value_type": "STRING",
+                    "notes": "hex format"
+                },
+                {
+                    "name": "hue",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                },
+                {
+                    "name": "saturation",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "setColor",
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "value_type": "JSON_OBJECT",
+                            "notes": "Map with hue, saturation, level"
+                        }
+                    ]
+                },
+                {
+                    "name": "setHue",
+                    "arguments": [
+                        {
+                            "name": "hue",
+                            "value_type": "NUMBER",
+                            "notes": "Hue value (0-100)"
+                        }
+                    ]
+                },
+                {
+                    "name": "setSaturation",
+                    "arguments": [
+                        {
+                            "name": "saturation",
+                            "value_type": "NUMBER",
+                            "notes": "Saturation value (0-100)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ColorMode",
+            "attributes": [
+                {
+                    "name": "colorMode",
+                    "value_type": "ENUM",
+                    "notes": "RGB, CT"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "ColorTemperature",
+            "attributes": [
+                {
+                    "name": "colorTemperature",
+                    "value_type": "NUMBER",
+                    "notes": "unit:K, range:1000..30000"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "setColorTemperature",
+                    "arguments": [
+                        {
+                            "name": "colortemperature",
+                            "value_type": "NUMBER",
+                            "notes": "Color temperature in Kelvin"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Configuration",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "configure",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Consumable",
+            "attributes": [
+                {
+                    "name": "consumableStatus",
+                    "value_type": "ENUM",
+                    "notes": "missing, order, maintenance_required, good"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "ContactSensor",
+            "attributes": [
+                {
+                    "name": "contact",
+                    "value_type": "ENUM",
+                    "notes": "open, closed"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "CurrentMeter",
+            "attributes": [
+                {
+                    "name": "amperage",
+                    "value_type": "NUMBER",
+                    "notes": "unit:A"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "DoorControl",
+            "attributes": [
+                {
+                    "name": "door",
+                    "value_type": "ENUM",
+                    "notes": "open, closed, opening, closing, unknown"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "close",
+                    "arguments": []
+                },
+                {
+                    "name": "open",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "DoubleTapableButton",
+            "attributes": [
+                {
+                    "name": "doubleTapped",
+                    "value_type": "NUMBER",
+                    "notes": "Button number"
+                },
+                {
+                    "name": "numberOfButtons",
+                    "value_type": "NUMBER",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "doubleTap",
+                    "arguments": [
+                        {
+                            "name": "buttonNumber",
+                            "value_type": "NUMBER",
+                            "notes": "Button number to double tap"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "EnergyMeter",
+            "attributes": [
+                {
+                    "name": "energy",
+                    "value_type": "NUMBER",
+                    "notes": "unit:kWh"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "EstimatedTimeOfArrival",
+            "attributes": [
+                {
+                    "name": "eta",
+                    "value_type": "DATE",
+                    "notes": ""
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "FanControl",
+            "attributes": [
+                {
+                    "name": "speed",
+                    "value_type": "ENUM",
+                    "notes": "low, medium-low, medium, medium-high, high, on, off, auto"
+                },
+                {
+                    "name": "supportedFanSpeeds",
+                    "value_type": "JSON_OBJECT",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "cycleSpeed",
+                    "arguments": []
+                },
+                {
+                    "name": "setSpeed",
+                    "arguments": [
+                        {
+                            "name": "fanspeed",
+                            "value_type": "ENUM",
+                            "notes": "Fan speed to set"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "FilterStatus",
+            "attributes": [
+                {
+                    "name": "filterStatus",
+                    "value_type": "ENUM",
+                    "notes": "normal, replace"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "resetFilterStatus",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Flash",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "flash",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "GarageDoorControl",
+            "attributes": [
+                {
+                    "name": "door",
+                    "value_type": "ENUM",
+                    "notes": "open, closed, opening, closing, unknown"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "close",
+                    "arguments": []
+                },
+                {
+                    "name": "open",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "GasDetector",
+            "attributes": [
+                {
+                    "name": "naturalGas",
+                    "value_type": "ENUM",
+                    "notes": "clear, detected, tested"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "HealthCheck",
+            "attributes": [
+                {
+                    "name": "checkInterval",
+                    "value_type": "NUMBER",
+                    "notes": "unit:minutes"
+                },
+                {
+                    "name": "healthStatus",
+                    "value_type": "ENUM",
+                    "notes": "online, offline"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "ping",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "HoldableButton",
+            "attributes": [
+                {
+                    "name": "held",
+                    "value_type": "NUMBER",
+                    "notes": "Button number"
+                },
+                {
+                    "name": "numberOfButtons",
+                    "value_type": "NUMBER",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "hold",
+                    "arguments": [
+                        {
+                            "name": "buttonNumber",
+                            "value_type": "NUMBER",
+                            "notes": "Button number to hold"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "IlluminanceMeasurement",
+            "attributes": [
+                {
+                    "name": "illuminance",
+                    "value_type": "NUMBER",
+                    "notes": "unit:lux"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "ImageCapture",
+            "attributes": [
+                {
+                    "name": "image",
+                    "value_type": "STRING",
+                    "notes": "URL"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "take",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Indicator",
+            "attributes": [
+                {
+                    "name": "indicatorStatus",
+                    "value_type": "ENUM",
+                    "notes": "when on, when off, never"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "indicatorNever",
+                    "arguments": []
+                },
+                {
+                    "name": "indicatorWhenOff",
+                    "arguments": []
+                },
+                {
+                    "name": "indicatorWhenOn",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Initialize",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "initialize",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Light",
+            "attributes": [
+                {
+                    "name": "switch",
+                    "value_type": "ENUM",
+                    "notes": "on, off"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "off",
+                    "arguments": []
+                },
+                {
+                    "name": "on",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "LightEffects",
+            "attributes": [
+                {
+                    "name": "effectName",
+                    "value_type": "STRING",
+                    "notes": ""
+                },
+                {
+                    "name": "lightEffects",
+                    "value_type": "JSON_OBJECT",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "setEffect",
+                    "arguments": [
+                        {
+                            "name": "effectNumber",
+                            "value_type": "NUMBER",
+                            "notes": "Effect number to set"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "LiquidFlowRate",
+            "attributes": [
+                {
+                    "name": "rate",
+                    "value_type": "NUMBER",
+                    "notes": "unit:gpm"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "LocationMode",
+            "attributes": [
+                {
+                    "name": "mode",
+                    "value_type": "STRING",
+                    "notes": ""
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "Lock",
+            "attributes": [
+                {
+                    "name": "lock",
+                    "value_type": "ENUM",
+                    "notes": "locked, unlocked, unlocked with timeout, unknown"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "lock",
+                    "arguments": []
+                },
+                {
+                    "name": "unlock",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "LockCodes",
+            "attributes": [
+                {
+                    "name": "codeChanged",
+                    "value_type": "STRING",
+                    "notes": ""
+                },
+                {
+                    "name": "codeLength",
+                    "value_type": "NUMBER",
+                    "notes": ""
+                },
+                {
+                    "name": "lockCodes",
+                    "value_type": "JSON_OBJECT",
+                    "notes": ""
+                },
+                {
+                    "name": "maxCodes",
+                    "value_type": "NUMBER",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "deleteCode",
+                    "arguments": [
+                        {
+                            "name": "codeposition",
+                            "value_type": "NUMBER",
+                            "notes": "Position of code to delete"
+                        }
+                    ]
+                },
+                {
+                    "name": "getCodes",
+                    "arguments": []
+                },
+                {
+                    "name": "setCode",
+                    "arguments": [
+                        {
+                            "name": "codeposition",
+                            "value_type": "NUMBER",
+                            "notes": "Position to set code"
+                        },
+                        {
+                            "name": "pincode",
+                            "value_type": "STRING",
+                            "notes": "PIN code to set"
+                        },
+                        {
+                            "name": "name",
+                            "value_type": "STRING",
+                            "notes": "Name for the code"
+                        }
+                    ]
+                },
+                {
+                    "name": "setCodeLength",
+                    "arguments": [
+                        {
+                            "name": "length",
+                            "value_type": "NUMBER",
+                            "notes": "Length of PIN codes"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MediaController",
+            "attributes": [
+                {
+                    "name": "activities",
+                    "value_type": "JSON_OBJECT",
+                    "notes": ""
+                },
+                {
+                    "name": "currentActivity",
+                    "value_type": "STRING",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "getAllActivities",
+                    "arguments": []
+                },
+                {
+                    "name": "getCurrentActivity",
+                    "arguments": []
+                },
+                {
+                    "name": "startActivity",
+                    "arguments": [
+                        {
+                            "name": "activityId",
+                            "value_type": "STRING",
+                            "notes": "Activity ID to start"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MediaInputSource",
+            "attributes": [
+                {
+                    "name": "inputSource",
+                    "value_type": "STRING",
+                    "notes": ""
+                },
+                {
+                    "name": "supportedInputs",
+                    "value_type": "JSON_OBJECT",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "setInputSource",
+                    "arguments": [
+                        {
+                            "name": "inputSource",
+                            "value_type": "STRING",
+                            "notes": "Input source to set"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MediaTransport",
+            "attributes": [
+                {
+                    "name": "transportStatus",
+                    "value_type": "ENUM",
+                    "notes": "playing, paused, stopped"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "pause",
+                    "arguments": []
+                },
+                {
+                    "name": "play",
+                    "arguments": []
+                },
+                {
+                    "name": "stop",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Momentary",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "push",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "MotionSensor",
+            "attributes": [
+                {
+                    "name": "motion",
+                    "value_type": "ENUM",
+                    "notes": "active, inactive"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "MusicPlayer",
+            "attributes": [
+                {
+                    "name": "level",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                },
+                {
+                    "name": "mute",
+                    "value_type": "ENUM",
+                    "notes": "unmuted, muted"
+                },
+                {
+                    "name": "status",
+                    "value_type": "ENUM",
+                    "notes": "playing, paused, stopped"
+                },
+                {
+                    "name": "trackData",
+                    "value_type": "JSON_OBJECT",
+                    "notes": ""
+                },
+                {
+                    "name": "trackDescription",
+                    "value_type": "STRING",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "mute",
+                    "arguments": []
+                },
+                {
+                    "name": "nextTrack",
+                    "arguments": []
+                },
+                {
+                    "name": "pause",
+                    "arguments": []
+                },
+                {
+                    "name": "play",
+                    "arguments": []
+                },
+                {
+                    "name": "playTrack",
+                    "arguments": [
+                        {
+                            "name": "trackuri",
+                            "value_type": "STRING",
+                            "notes": "URI of track to play"
+                        }
+                    ]
+                },
+                {
+                    "name": "previousTrack",
+                    "arguments": []
+                },
+                {
+                    "name": "restoreTrack",
+                    "arguments": [
+                        {
+                            "name": "trackuri",
+                            "value_type": "STRING",
+                            "notes": "URI of track to restore"
+                        }
+                    ]
+                },
+                {
+                    "name": "resumeTrack",
+                    "arguments": [
+                        {
+                            "name": "trackuri",
+                            "value_type": "STRING",
+                            "notes": "URI of track to resume"
+                        }
+                    ]
+                },
+                {
+                    "name": "setLevel",
+                    "arguments": [
+                        {
+                            "name": "level",
+                            "value_type": "NUMBER",
+                            "notes": "Level to set (0-100)"
+                        }
+                    ]
+                },
+                {
+                    "name": "setTrack",
+                    "arguments": [
+                        {
+                            "name": "trackuri",
+                            "value_type": "STRING",
+                            "notes": "URI of track to set"
+                        }
+                    ]
+                },
+                {
+                    "name": "stop",
+                    "arguments": []
+                },
+                {
+                    "name": "unmute",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Notification",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "deviceNotification",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "value_type": "STRING",
+                            "notes": "Text to send as notification"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Outlet",
+            "attributes": [
+                {
+                    "name": "switch",
+                    "value_type": "ENUM",
+                    "notes": "on, off"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "off",
+                    "arguments": []
+                },
+                {
+                    "name": "on",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "Polling",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "poll",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "PowerMeter",
+            "attributes": [
+                {
+                    "name": "power",
+                    "value_type": "NUMBER",
+                    "notes": "unit:W"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "PowerSource",
+            "attributes": [
+                {
+                    "name": "powerSource",
+                    "value_type": "ENUM",
+                    "notes": "battery, dc, mains, unknown"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "PresenceSensor",
+            "attributes": [
+                {
+                    "name": "presence",
+                    "value_type": "ENUM",
+                    "notes": "present, not present"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "PressureMeasurement",
+            "attributes": [
+                {
+                    "name": "pressure",
+                    "value_type": "NUMBER",
+                    "notes": "unit:kPa"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "PushableButton",
+            "attributes": [
+                {
+                    "name": "numberOfButtons",
+                    "value_type": "NUMBER",
+                    "notes": ""
+                },
+                {
+                    "name": "pushed",
+                    "value_type": "NUMBER",
+                    "notes": "Button number"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "push",
+                    "arguments": [
+                        {
+                            "name": "buttonNumber",
+                            "value_type": "NUMBER",
+                            "notes": "Button number to push"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Refresh",
+            "attributes": [],
+            "commands": [
+                {
+                    "name": "refresh",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "RelativeHumidityMeasurement",
+            "attributes": [
+                {
+                    "name": "humidity",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "RelaySwitch",
+            "attributes": [
+                {
+                    "name": "switch",
+                    "value_type": "ENUM",
+                    "notes": "on, off"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "off",
+                    "arguments": []
+                },
+                {
+                    "name": "on",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "ReleasableButton",
+            "attributes": [
+                {
+                    "name": "numberOfButtons",
+                    "value_type": "NUMBER",
+                    "notes": ""
+                },
+                {
+                    "name": "released",
+                    "value_type": "NUMBER",
+                    "notes": "Button number"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "release",
+                    "arguments": [
+                        {
+                            "name": "buttonNumber",
+                            "value_type": "NUMBER",
+                            "notes": "Button number to release"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "SamsungTV",
+            "attributes": [
+                {
+                    "name": "messageButton",
+                    "value_type": "STRING",
+                    "notes": ""
+                },
+                {
+                    "name": "pictureMode",
+                    "value_type": "STRING",
+                    "notes": ""
+                },
+                {
+                    "name": "soundMode",
+                    "value_type": "STRING",
+                    "notes": ""
+                }
+            ],
+            "commands": [
+                {
+                    "name": "sendKey",
+                    "arguments": [
+                        {
+                            "name": "key",
+                            "value_type": "STRING",
+                            "notes": "Key to send"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Sensor",
+            "attributes": [],
+            "commands": []
+        },
+        {
+            "name": "Switch",
+            "attributes": [
+                {
+                    "name": "switch",
+                    "value_type": "ENUM",
+                    "notes": "on, off"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "off",
+                    "arguments": []
+                },
+                {
+                    "name": "on",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "SwitchLevel",
+            "attributes": [
+                {
+                    "name": "level",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "setLevel",
+                    "arguments": [
+                        {
+                            "name": "level",
+                            "value_type": "NUMBER",
+                            "notes": "Level to set (0-100)"
+                        },
+                        {
+                            "name": "duration",
+                            "value_type": "NUMBER",
+                            "notes": "optional - Duration in seconds"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "TemperatureMeasurement",
+            "attributes": [
+                {
+                    "name": "temperature",
+                    "value_type": "NUMBER",
+                    "notes": "unit:°F or °C"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "Thermostat",
+            "attributes": [
+                {
+                    "name": "coolingSetpoint",
+                    "value_type": "NUMBER",
+                    "notes": "unit:°F or °C"
+                },
+                {
+                    "name": "heatingSetpoint",
+                    "value_type": "NUMBER",
+                    "notes": "unit:°F or °C"
+                },
+                {
+                    "name": "temperature",
+                    "value_type": "NUMBER",
+                    "notes": "unit:°F or °C"
+                },
+                {
+                    "name": "thermostatFanMode",
+                    "value_type": "ENUM",
+                    "notes": "auto, circulate, on"
+                },
+                {
+                    "name": "thermostatMode",
+                    "value_type": "ENUM",
+                    "notes": "auto, cool, emergency heat, heat, off"
+                },
+                {
+                    "name": "thermostatOperatingState",
+                    "value_type": "ENUM",
+                    "notes": "cooling, fan only, heating, idle, pending cool, pending heat"
+                },
+                {
+                    "name": "thermostatSetpoint",
+                    "value_type": "NUMBER",
+                    "notes": "unit:°F or °C"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "auto",
+                    "arguments": []
+                },
+                {
+                    "name": "cool",
+                    "arguments": []
+                },
+                {
+                    "name": "emergencyHeat",
+                    "arguments": []
+                },
+                {
+                    "name": "fanAuto",
+                    "arguments": []
+                },
+                {
+                    "name": "fanCirculate",
+                    "arguments": []
+                },
+                {
+                    "name": "fanOn",
+                    "arguments": []
+                },
+                {
+                    "name": "heat",
+                    "arguments": []
+                },
+                {
+                    "name": "off",
+                    "arguments": []
+                },
+                {
+                    "name": "setCoolingSetpoint",
+                    "arguments": [
+                        {
+                            "name": "temperature",
+                            "value_type": "NUMBER",
+                            "notes": "Temperature to set"
+                        }
+                    ]
+                },
+                {
+                    "name": "setHeatingSetpoint",
+                    "arguments": [
+                        {
+                            "name": "temperature",
+                            "value_type": "NUMBER",
+                            "notes": "Temperature to set"
+                        }
+                    ]
+                },
+                {
+                    "name": "setThermostatFanMode",
+                    "arguments": [
+                        {
+                            "name": "fanmode",
+                            "value_type": "ENUM",
+                            "notes": "Fan mode to set"
+                        }
+                    ]
+                },
+                {
+                    "name": "setThermostatMode",
+                    "arguments": [
+                        {
+                            "name": "thermostatmode",
+                            "value_type": "ENUM",
+                            "notes": "Thermostat mode to set"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Valve",
+            "attributes": [
+                {
+                    "name": "valve",
+                    "value_type": "ENUM",
+                    "notes": "open, closed"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "close",
+                    "arguments": []
+                },
+                {
+                    "name": "open",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "WaterSensor",
+            "attributes": [
+                {
+                    "name": "water",
+                    "value_type": "ENUM",
+                    "notes": "dry, wet"
+                }
+            ],
+            "commands": []
+        },
+        {
+            "name": "WindowBlind",
+            "attributes": [
+                {
+                    "name": "position",
+                    "value_type": "NUMBER",
+                    "notes": "unit:%, range:0..100"
+                },
+                {
+                    "name": "windowBlind",
+                    "value_type": "ENUM",
+                    "notes": "open, closed, opening, closing, partially open, unknown"
+                }
+            ],
+            "commands": [
+                {
+                    "name": "close",
+                    "arguments": []
+                },
+                {
+                    "name": "open",
+                    "arguments": []
+                },
+                {
+                    "name": "setPosition",
+                    "arguments": [
+                        {
+                            "name": "position",
+                            "value_type": "NUMBER",
+                            "notes": "Position to set (0-100)"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
