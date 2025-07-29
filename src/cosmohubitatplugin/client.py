@@ -1,5 +1,6 @@
 import logging
 from typing import Any
+from urllib.parse import quote
 
 import httpx
 from pydantic import BaseModel
@@ -196,3 +197,27 @@ class HubitatClient:
             raise Exception(f"Device with ID {device_id} not found")
 
         return devices[device_id]
+
+    async def subscribe_to_events(self, webhook_url: str) -> None:
+        """Subscribe to Hubitat events by registering a webhook URL.
+
+        Args:
+            webhook_url: The URL where Hubitat should send event notifications
+
+        Raises:
+            Exception: If the API request fails or returns an error status
+        """
+        # URL encode the webhook URL as required by the Hubitat API
+        encoded_url = quote(webhook_url, safe="")
+
+        # Build the postURL endpoint with the encoded webhook URL
+        url = f"{self._address}/postURL/{encoded_url}"
+
+        logger.debug(f"Registering webhook URL with Hubitat: '{webhook_url}'")
+
+        try:
+            await self._make_request(url)
+            logger.info(f"Successfully registered webhook URL: {webhook_url}")
+        except Exception as error:
+            logger.error(f"Failed to register webhook URL: {webhook_url}", exc_info=True)
+            raise Exception(f"Failed to register webhook URL: {error}") from error
