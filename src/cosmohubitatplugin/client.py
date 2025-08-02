@@ -3,11 +3,19 @@ from typing import Any
 from urllib.parse import quote
 
 import httpx
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from .driver import DeviceCapability, load_hubitat_capabilities
 
 logger = logging.getLogger(__name__)
+
+
+class HubitatDeviceEvent(BaseModel):
+    """Represents an event from a Hubitat device."""
+
+    device_id: str = Field(alias="deviceId")
+    attribute: str = Field(alias="name")
+    value: Any | None = None
 
 
 class DeviceAttribute(BaseModel):
@@ -98,6 +106,48 @@ class HubitatDevice(BaseModel):
             else:
                 logger.warning(f"Unknown capability '{name}' - skipping")
         return capabilities
+
+    def has_attribute(self, attr_name: str) -> bool:
+        """Check if the device has an attribute with the given name.
+
+        Args:
+            attr_name: The name of the attribute to check for
+
+        Returns:
+            True if the device has the attribute, False otherwise
+        """
+        return any(attr.name == attr_name for attr in self.attributes)
+
+    def has_command(self, command_name: str) -> bool:
+        """Check if the device has a command with the given name.
+
+        Args:
+            command_name: The name of the command to check for
+
+        Returns:
+            True if the device has the command, False otherwise
+        """
+        for capability in self.capabilities.values():
+            if any(cmd.name == command_name for cmd in capability.commands):
+                return True
+        return False
+
+    def get_attr_value(self, attr_name: str) -> Any:
+        """Get the current value of an attribute by name.
+
+        Args:
+            attr_name: The name of the attribute to get the value for
+
+        Returns:
+            The current value of the attribute
+
+        Raises:
+            AttributeError: If the attribute is not found on the device
+        """
+        for attr in self.attributes:
+            if attr.name == attr_name:
+                return attr.current_value
+        raise AttributeError(f"Attribute '{attr_name}' not found on device {self.id}")
 
 
 class HubitatClient:
