@@ -83,16 +83,30 @@ class HubitatCapabilities(BaseModel):
     capabilities: list[DeviceCapability]
 
 
+# Global cache for capabilities to avoid re-loading JSON file
+_capabilities_cache: dict[str, DeviceCapability] | None = None
+
+
 def load_hubitat_capabilities() -> dict[str, DeviceCapability]:
     """Load Hubitat capabilities from the JSON data file.
 
+    This function caches the capabilities data after the first load to avoid
+    repeatedly reading and parsing the JSON file.
+
     Returns:
-        HubitatCapabilities: Parsed capabilities data
+        dict[str, DeviceCapability]: Mapping of names to DeviceCapability objects
 
     Raises:
         FileNotFoundError: If the capabilities JSON file is not found
         json.JSONDecodeError: If the JSON file is malformed
     """
+    global _capabilities_cache
+
+    # Return cached data if available
+    if _capabilities_cache is not None:
+        return _capabilities_cache
+
+    # Load and cache the capabilities data
     current_dir = Path(__file__).parent
     capabilities_file = current_dir / "data" / "hubitat_capabilities.json"
 
@@ -102,4 +116,7 @@ def load_hubitat_capabilities() -> dict[str, DeviceCapability]:
     with open(capabilities_file, encoding="utf-8") as f:
         data = json.load(f)
 
-    return {cap.name: cap for cap in HubitatCapabilities(**data).capabilities}
+    _capabilities_cache = {
+        cap.name: cap for cap in HubitatCapabilities(**data).capabilities
+    }
+    return _capabilities_cache
