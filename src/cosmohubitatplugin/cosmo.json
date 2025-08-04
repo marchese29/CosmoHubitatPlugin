@@ -1,0 +1,6 @@
+{
+  "name": "Hubitat Plugin", 
+  "plugin_class": "cosmohubitatplugin.HubitatPlugin",
+  "description": "Integration with Hubitat Elevation smart home hub",
+  "url_prefix": "hubitat"
+}
